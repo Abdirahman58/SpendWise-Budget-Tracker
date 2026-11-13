@@ -1,37 +1,99 @@
 # SpendWise – Personal Budget & Expense Tracker
 
-![SpendWise](https://img.shields.io/badge/Project-SpendWise-blue)
-![HTML5](https://img.shields.io/badge/HTML5-Structure-orange)
-![CSS3](https://img.shields.io/badge/CSS3-Styling-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-Functionality-yellow)
-![License](https://img.shields.io/badge/License-MIT-green)
+<p align="center">
+  <strong>Take Control of Your Money. Track Your Spending. Build Better Financial Habits.</strong>
+</p>
 
-## Overview
+<p align="center">
+  <a href="https://spendwisebudget-tracker.netlify.app/">Live Website</a> |
+  <a href="https://github.com/Abdirahman58/SpendWise-Budget-Tracker">GitHub Repository</a>
+</p>
 
-SpendWise is a modern, responsive personal budget and expense tracking web application designed to help users manage their finances effectively.
+<p align="center">
+  ![HTML5](https://img.shields.io/badge/HTML5-Structure-orange?style=flat-square)
+  ![CSS3](https://img.shields.io/badge/CSS3-Styling-blue?style=flat-square)
+  ![JavaScript](https://img.shields.io/badge/JavaScript-Functionality-yellow?style=flat-square)
+  ![Netlify](https://img.shields.io/badge/Hosted%20on-Netlify-00C7B7?style=flat-square)
+  ![GitHub](https://img.shields.io/badge/Version%20Control-GitHub-black?style=flat-square)
+</p>
 
-The application helps users record income and expenses, monitor spending habits, organize transactions by category, and maintain better control of their personal budgets.
+---
 
-## Features
+## 1. Project Overview
 
-- **Dashboard:** Overview of financial activities.
-- **Income Tracking:** Record and monitor income.
-- **Expense Management:** Add, view, and manage expenses.
-- **Category Management:** Organize expenses into categories.
-- **Budget Monitoring:** Track spending against budgets.
-- **Financial Summary:** View total income, expenses, and available balance.
-- **Responsive Design:** Compatible with desktop, tablet, and mobile devices.
-- **Interactive Interface:** User-friendly navigation and controls.
+SpendWise is a modern, responsive personal budget and expense tracking web application developed to help individuals manage their finances efficiently.
 
-## Technologies Used
+The application provides an interactive dashboard that enables users to monitor income, record expenses, manage budgets, track savings goals, and analyze their spending habits.
 
-- HTML5 – Website structure.
-- CSS3 – Styling and responsive layouts.
-- JavaScript – Dynamic functionality and interactions.
-- Git & GitHub – Version control and source code management.
-- Netlify – Website hosting and deployment.
+SpendWise aims to promote financial awareness, responsible spending, and better personal financial planning through a simple and user-friendly interface.
 
-## Project Structure
+## 2. Live Demo
+
+**Visit the live application:**
+
+https://spendwisebudget-tracker.netlify.app/
+
+The application is hosted on Netlify and connected to GitHub for version control and deployment.
+
+## 3. Key Features
+
+### Dashboard
+- Financial overview.
+- Income and expense summaries.
+- Available balance monitoring.
+- Financial activity visualization.
+
+### Income Management
+- Record income transactions.
+- Monitor total income.
+- Organize financial records.
+
+### Expense Management
+- Add and manage expenses.
+- Categorize spending.
+- Monitor daily and overall expenses.
+
+### Budget Management
+- Set personal spending budgets.
+- Monitor budget utilization.
+- Track spending against financial limits.
+
+### Transaction Management
+- View financial transactions.
+- Organize transaction records.
+- Monitor income and expenses.
+
+### Savings Goals
+- Create savings targets.
+- Monitor savings progress.
+- Track progress towards financial goals.
+
+### Reports
+- Review financial summaries.
+- Analyze spending patterns.
+- Monitor financial performance.
+
+### Settings
+- Access application settings.
+- Manage available preferences.
+
+### Responsive Design
+- User-friendly interface.
+- Desktop, tablet, and mobile support.
+- Responsive navigation and layouts.
+
+## 4. Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| HTML5 | Website structure and content |
+| CSS3 | Styling, layouts and responsiveness |
+| JavaScript | Application logic and interactivity |
+| Git | Version control |
+| GitHub | Source code hosting |
+| Netlify | Website deployment and hosting |
+
+## 5. Project Structure
 
 ```text
 SpendWise-Budget-Tracker/
@@ -40,71 +102,131 @@ SpendWise-Budget-Tracker/
 ├── style.css
 ├── script.js
 ├── README.md
+│
 └── assets/
     └── images/
 ```
 
-## Getting Started
+*Note: The assets directory is optional and should match the actual files in the repository.*
 
-### 1. Clone the Repository
+## 6. Installation and Setup
+
+Follow these steps to run SpendWise locally.
+
+### Prerequisites
+
+- Visual Studio Code.
+- Git installed on your computer.
+- A modern web browser.
+- Live Server VS Code extension (recommended).
+
+### Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/Abdirahman58/SpendWise-Budget-Tracker.git
 ```
 
-### 2. Navigate to the Project Directory
+### Step 2: Navigate to the Project Folder
 
 ```bash
 cd SpendWise-Budget-Tracker
 ```
 
-### 3. Run the Application
+### Step 3: Open in Visual Studio Code
 
-Open `index.html` in your browser or use the Live Server extension in Visual Studio Code.
+```bash
+code .
+```
 
-## Deployment with Netlify
+### Step 4: Run the Application
 
-SpendWise is designed for deployment using GitHub and Netlify.
+Open `index.html` using the VS Code Live Server extension.
 
-1. Push the project files to GitHub.
-2. Log in to Netlify.
-3. Select **Add new project**.
-4. Import your GitHub repository.
-5. Select `SpendWise-Budget-Tracker`.
-6. Configure the deployment settings.
-7. Click **Deploy**.
-8. Test your published website.
+The application will open in your default browser.
 
-Netlify can automatically redeploy your website whenever you push new changes to GitHub.
+## 7. GitHub Version Control
 
-## Project Links
+SpendWise uses Git and GitHub to manage source code and track project updates.
 
-**GitHub Repository:**
+To upload future changes:
 
-https://github.com/Abdirahman58/SpendWise-Budget-Tracker
+```bash
+git add .
+git commit -m "Update SpendWise application"
+git push origin main
+```
 
-**Live Website:**
+## 8. Deployment Using Netlify
 
-_To be added after successful Netlify deployment._
+SpendWise is deployed using Netlify with GitHub integration.
 
-## Learning Objectives
+### Deployment Process
 
-This project demonstrates practical knowledge of:
+1. Create a GitHub repository.
+2. Upload the SpendWise project files.
+3. Log in to Netlify.
+4. Select **Add new project**.
+5. Choose **Import an existing project**.
+6. Connect your GitHub account.
+7. Select `SpendWise-Budget-Tracker`.
+8. Configure the deployment settings.
+9. Deploy the application.
+10. Open and test the live website.
 
-- Frontend web development.
-- HTML page structuring.
-- CSS styling and responsive design.
-- JavaScript DOM manipulation.
-- Event handling and application logic.
-- Git and GitHub version control.
-- Website hosting and deployment.
+### Automatic Deployment
 
-## Author
+The GitHub repository is connected to Netlify.
+
+When changes are committed and pushed to the connected GitHub repository, Netlify can automatically build and publish the updated website.
+
+## 9. Project Links
+
+| Resource | Link |
+|---|---|
+| Live Website | https://spendwisebudget-tracker.netlify.app/ |
+| GitHub Repository | https://github.com/Abdirahman58/SpendWise-Budget-Tracker |
+| Hosting Platform | Netlify |
+| Source Code Platform | GitHub |
+
+## 10. Learning Outcomes
+
+Through this project, I gained practical experience in:
+
+- Building responsive websites using HTML5.
+- Applying CSS3 styling and layout techniques.
+- Implementing JavaScript functionality.
+- Working with interactive web interfaces.
+- Managing source code using Git.
+- Hosting projects using GitHub.
+- Deploying websites using Netlify.
+- Understanding continuous deployment workflows.
+- Testing and maintaining web applications.
+
+## 11. Future Improvements
+
+Potential future enhancements include:
+
+- User authentication and secure accounts.
+- Database integration for persistent financial records.
+- Exporting financial reports.
+- Advanced financial analytics.
+- Improved data visualization.
+- Enhanced budget notifications.
+
+## 12. Author
 
 **Abdirahman Mohamed Ibrahim**
 
 Web Development Fundamentals Student
 
-## License
+GitHub: [@Abdirahman58](https://github.com/Abdirahman58)
 
-This project is developed for educational purposes as part of the Web Development Fundamentals training program.
+## 13. License
+
+This project was developed for educational purposes as part of the Web Development Fundamentals training program.
+
+---
+
+<p align="center">
+  **SpendWise – Manage Your Money Smarter.**
+</p>
