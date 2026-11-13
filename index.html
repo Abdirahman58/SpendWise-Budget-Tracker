@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpendWise – Personal Budget & Expense Tracker</title>
+  <meta name="description" content="Take Control of Your Money, Build Your Future.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230b1f3a'/><path d='M25 65l18-20 14 12 20-27' stroke='%2322c55e' stroke-width='9' fill='none' stroke-linecap='round'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <!-- Sidebar navigation (hash-based routing: #dashboard, #income, ...) -->
+  <aside id="sidebar">
+    <div class="brand"><i class="bi bi-graph-up-arrow"></i> SpendWise</div>
+    <nav>
+      <a href="#dashboard"><i class="bi bi-speedometer2"></i> Dashboard</a>
+      <a href="#income"><i class="bi bi-arrow-down-circle"></i> Income</a>
+      <a href="#expenses"><i class="bi bi-arrow-up-circle"></i> Expenses</a>
+      <a href="#budgets"><i class="bi bi-pie-chart"></i> Budgets</a>
+      <a href="#transactions"><i class="bi bi-list-ul"></i> Transactions</a>
+      <a href="#goals"><i class="bi bi-bullseye"></i> Savings Goals</a>
+      <a href="#reports"><i class="bi bi-bar-chart-line"></i> Reports</a>
+      <a href="#settings"><i class="bi bi-gear"></i> Settings</a>
+    </nav>
+    <p class="tagline">Take Control of Your Money, Build Your Future.</p>
+  </aside>
+  <div id="scrim"></div>
+
+  <div class="main">
+    <header class="top">
+      <button id="menu" class="icon-btn" aria-label="Open menu"><i class="bi bi-list"></i></button>
+      <h1 id="title">Dashboard</h1>
+      <span class="spacer"></span>
+      <button id="themeBtn" class="icon-btn" aria-label="Toggle theme"><i class="bi bi-moon-stars"></i></button>
+      <span class="who"><i class="bi bi-person-circle"></i> <span id="who">Guest</span></span>
+    </header>
+
+    <main>
+      <!-- DASHBOARD -->
+      <section id="dashboard" class="page">
+        <div class="alerts"></div>
+        <div class="cards">
+          <article class="card stat"><i class="bi bi-wallet2 ic navy"></i><p>Total balance</p><h2 id="vBal"></h2><small>All income minus all expenses</small></article>
+          <article class="card stat"><i class="bi bi-arrow-down-circle ic green"></i><p>Total income</p><h2 id="vInc" class="inc"></h2><small id="sInc"></small></article>
+          <article class="card stat"><i class="bi bi-arrow-up-circle ic red"></i><p>Total expenses</p><h2 id="vExp" class="exp"></h2><small id="sExp"></small></article>
+          <article class="card stat"><i class="bi bi-calendar2-check ic navy"></i><p>Remaining monthly budget</p><h2 id="vRem"></h2><small id="sRem"></small></article>
+          <article class="card stat"><i class="bi bi-piggy-bank ic green"></i><p>Savings overview</p><h2 id="vSav" class="inc"></h2><small id="sSav"></small></article>
+        </div>
+        <div class="grid2">
+          <article class="card"><h3>Monthly spending (this month, per day)</h3><div class="chart"><canvas id="chSpend"></canvas></div></article>
+          <article class="card"><h3>Income vs expenses (6 months)</h3><div class="chart"><canvas id="chIE"></canvas></div></article>
+          <article class="card"><h3>Spending by category</h3><div class="chart"><canvas id="chCat"></canvas></div></article>
+          <article class="card"><h3>Recent transactions</h3><div id="recent"></div></article>
+        </div>
+        <article class="card"><h3>Monthly financial summary</h3><div id="summary" class="summary"></div></article>
+      </section>
+
+      <!-- INCOME -->
+      <section id="income" class="page" hidden>
+        <div class="head"><p>Record salary, business earnings and other money coming in.</p><button class="btn" id="addInc"><i class="bi bi-plus-lg"></i> Add income</button></div>
+        <article class="card" id="incTable"></article>
+      </section>
+
+      <!-- EXPENSES -->
+      <section id="expenses" class="page" hidden>
+        <div class="head"><p>Track everything you spend, by category and payment method.</p><button class="btn" id="addExp"><i class="bi bi-plus-lg"></i> Add expense</button></div>
+        <article class="card" id="expTable"></article>
+      </section>
+
+      <!-- BUDGETS -->
+      <section id="budgets" class="page" hidden>
+        <div class="head"><p>Budgets reset each calendar month and track this month's spending.</p>
+          <span><button class="btn ghost" id="setMonthly">Set monthly budget</button> <button class="btn" id="setCat"><i class="bi bi-plus-lg"></i> Category budget</button></span></div>
+        <div class="alerts"></div>
+        <div id="budgetView"></div>
+      </section>
+
+      <!-- TRANSACTIONS -->
+      <section id="transactions" class="page" hidden>
+        <article class="card">
+          <div class="filters">
+            <input id="q" type="search" placeholder="Search transactions" aria-label="Search">
+            <select id="fType" aria-label="Type"><option value="">All types</option><option value="income">Income</option><option value="expense">Expense</option></select>
+            <select id="fCat" aria-label="Category"></select>
+            <input id="fDate" type="date" aria-label="Date">
+            <select id="fSort" aria-label="Sort"><option value="new">Newest first</option><option value="old">Oldest first</option></select>
+            <button class="btn ghost" id="fClear">Clear filters</button>
+          </div>
+          <p id="txCount" class="muted"></p>
+          <div id="txTable"></div>
+        </article>
+      </section>
+
+      <!-- SAVINGS GOALS -->
+      <section id="goals" class="page" hidden>
+        <div class="head"><p>Set a target, add contributions and watch your progress.</p><button class="btn" id="addGoal"><i class="bi bi-plus-lg"></i> New goal</button></div>
+        <div id="goalView" class="grid2"></div>
+      </section>
+
+      <!-- REPORTS -->
+      <section id="reports" class="page" hidden>
+        <div class="head"><p>Choose a month to analyse.</p><input type="month" id="repMonth" aria-label="Report month"></div>
+        <div class="cards" id="repStats"></div>
+        <div class="grid2">
+          <article class="card"><h3>Income vs expenses</h3><div class="chart"><canvas id="rIE"></canvas></div></article>
+          <article class="card"><h3>Spending by category</h3><div class="chart"><canvas id="rCat"></canvas></div></article>
+        </div>
+        <article class="card"><h3>Monthly trends (6 months)</h3><div class="chart"><canvas id="rTrend"></canvas></div></article>
+      </section>
+
+      <!-- SETTINGS -->
+      <section id="settings" class="page" hidden>
+        <article class="card narrow">
+          <h3>Profile & preferences</h3>
+          <form id="setForm" class="stack">
+            <label>Your name <input name="name" maxlength="40" required></label>
+            <label>Currency <select name="currency"><option>KES</option><option>USD</option><option>EUR</option><option>GBP</option></select></label>
+            <label>Theme <select name="theme"><option value="light">Light</option><option value="dark">Dark</option></select></label>
+            <button class="btn">Save settings</button>
+          </form>
+        </article>
+        <article class="card narrow">
+          <h3>Your data</h3>
+          <div class="stack">
+            <button class="btn ghost" id="exportBtn"><i class="bi bi-download"></i> Export transactions to CSV</button>
+            <button class="btn ghost" id="clearSample"><i class="bi bi-eraser"></i> Clear sample data</button>
+            <button class="btn danger" id="resetBtn"><i class="bi bi-trash3"></i> Reset all data</button>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer>© SpendWise – Take Control of Your Money, Build Your Future.</footer>
+  </div>
+</div>
+
+<dialog id="modal"><h3 id="modalTitle"></h3><form id="form" class="stack"></form></dialog>
+<div id="toasts" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
